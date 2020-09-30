@@ -8,7 +8,7 @@ https://data.mendeley.com/datasets/85t28npyv7/1
 
 ### Introduction/Background
 
-Wildfires are responsible for destroying and damaging communities around the world. These damages can number in the billions of dollars worth of property if not handled within a timely fashion. In recent years, wildfires have become more prevalent than ever in areas such as California, but also in lesser known areas. With access to datasets and more powerful technology than in the past, we strive to uncover details from past wildfires in order to help wildland firefighters stand a better chance of fighting the wildfires sooner and faster.
+Wildfires cause irreversible damage to communities. The wildfires’ ability to spread at an exponential rate puts great importance on extinguishing them as soon as possible. As wildfires have become increasingly prevalent in recent years, we strive to help firefighters and communities by taking advantage of the unprecedented access to datasets and powerful technology.
 
 ### Problem definition
 
