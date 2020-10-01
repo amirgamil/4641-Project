@@ -1,10 +1,5 @@
 # 4641-Project
 
-Welcome to the best 4641 project in existence
-
-Dataset to start with:
-https://www.kaggle.com/rtatman/188-million-us-wildfires
-
 ### Introduction/Background
 
 Wildfires are a major threat to our environment, destroying natural habitats and ravaging communities. In 2019, over 4.4 million acres were destroyed by wildfires, and 8 million acres have already been destroyed in 2020 alone [1]. Effects of climate change have resulted in greater wildfire activity over the past couple of years [2], and their ability to rapidly spread out of control puts great importance on extinguishing them as soon as possible. Rapidly detecting and predicting wildfires as early as possible would allow first responders to act early and extinguish wildfires, limiting their disastrous results.
