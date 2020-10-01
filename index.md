@@ -16,39 +16,10 @@ The goal of this project is to build a predictive model to understand, analyze, 
 ### Methods
 
 Existing work in the past has attempted to use a variety of data, such as meterological conditions [4], biomass [5], and satellite images [6], however there remain pressing challenges in predicting wildfires accurately such as predicting the complex patterns in how the enivronment will respond [7].
-
-
-----TODO:----
-1. summarize existing literature (put together in actual paragraph)
-2. explain specific methods we would use on potentially what - e.g. random forest with X data
-  2a) first part can be unsupervised learning to understand patterns in data - say clustering (K-means, GMM, mention specifics) to find patterns between features, what's correlated with what
-  2b) supervised learning using our results from ^ - try a variety of models e.g. random forests, SVM, neural networks to determine best fit
   
-  
-**A Machine Learning-Based Approach for Wildfire Susceptibility Mapping. The Case Study of the Liguria Region in Italy** 
+ Most existing research in wildfire prediction incorporates high-dimensional features to classify potential areas where fire could spread. In one case, Tonini et al. use the slope of land sections, vegetation type, non-flammable area, and many other explanatory variables to classify the fire risk of every point of land in the Italian Liguria region as a probability [8]. The specific classification algorithm used was the Random Forest classification method. The training set used for this study included maps of 15 years of fire damage throughout the area. Final predictions were relatively accurate with 83.4% - 91.7% prediction accuracy year-to-year under the test datasest. A similar study from Rodrigues and Riva utilize features such as forest area, power line presence, protected area status, etc. to predict low or high risk in regions of Spain [9]. This work utilizes 30 years of wildfire data and deploys an assortment of regression methods - Random Forest, Boosted Regression Tree, Support Vector Machine, and logistic regression - to predict the fire risk. Again, the Random Forest algorithm proved promising with an AUC value of 0.746 vs 0.730, 0.709, and 0.686 for the others respectively. On the topic of deep learning, Sayad et al. make use of NASA satellite remote sensing data based on crop states, meteorological conditions, thermal intensity, and other measures in conjunction with a Multi-layer perceptron neural network and a separate SVM model to predict fire occurence to an accuracy of 98% and 97% respectively on a small dataset of Canadian fires [10].
 
-- Uses many different features, including elevation, vegetation type, neighboring vegetation, and many more
-- They modeled fires by binary classifying all areas as “burned” or not over a large amount of predictions. The burned vs total predictions ratio was used as a “probability” that a given area would be susceptible to wildfire.
-- Primarily uses random forest (yeah, ikr) to make predictions
-  -- Variables were optimized using Gini impurities
-  -- Achieved ~80-90% accuracy
-
-**An insight into machine-learning algorithms to model human-caused wildfire occurrence**
-
-- Study in Spain using machine learning to predict fire risk (high vs low occurrence)
-- Explantory variables – change in demographic potential, forest area, power line presence, railways, protected areas (hampers fire spreading)
-- Tested with random forest, boosted regression tree, SVM, and logistic regression
-  -- AUC values of .746, .730, .709, and .686 respectively
-
-**Predictive modeling of wildfires: A new dataset and machine learning approach Younes Oulad Sayad, Hajar Mousannif, Hassan Al Moatassime**
-
-- Utilizes remote sensing data (based on crop state, meteorological conditions)
-  -- Utilizes data from NASA’s Terra, Aqua, Landsat, and Aster satellites, which can measure crop types, soil types, and thermal anomalies. We could use this
-- Algorithms tested were Multi-layer perceptron neural network and SVM
-- Pretty high accuracy (98% vs 97%), but vague solutions
-
-**Algorithms**
-The most successful models that I've encountered in the literature appear to be Random Forest for vanilla machine learning (upper 70's - 90 percent accuracy depending on the problem/solution types). Neural networks have the capacity to surpass this accuracy (90's percent range) but needs more research into this. Neural networks would also require many more features from what I gather.
+It is clear that higher dimensional datasets are common and perhaps required in fire prediction. Thus, to determine the most important features in our dataset, we will utilize a correlation matrix between our features to determine their interdependence. We will follow that with Principal Component Analysis to reduce our feature set to the most important, linearly independent features. To predict the wildfire risk of every location in our dataset, we will utilize an array of models - including Random Forest, SVM, and neural network-based classification. We will test each model indpendently of each other to maximize our accuracy.
 
 ### Potential results
 We hope to apply a variety of machine learning techniques to determine features which are good predictors of wildfires and thus, can enable us to the probabilities of wildfires occuring within certain geographic clusters. Although it's difficult to say with certainty, we anticipate that the variables used in previous research in the field [4-6] will correlate highly with the presence of wildfires. This is a bit of a needle in the haystick problem in that we will need to filter out noise from the patterns we discover in our unsupervised/supervised learning methods to determine the features which are the best predictors of wildfires. 
@@ -63,3 +34,6 @@ We hope to apply a variety of machine learning techniques to determine features 
 [5] https://gmd.copernicus.org/articles/12/3283/2019/gmd-12-3283-2019.pdf
 [6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717155/
 [7] https://www.frontiersin.org/articles/10.3389/fict.2018.00006/full
+[8] https://www.mdpi.com/2076-3263/10/3/105
+[9] https://www.sciencedirect.com/science/article/pii/S1364815214000814
+[10] https://www.sciencedirect.com/science/article/pii/S0379711218303941
