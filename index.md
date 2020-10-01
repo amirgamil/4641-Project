@@ -17,9 +17,9 @@ The goal of this project is to build a predictive model to understand, analyze, 
 
 Existing work in the past has attempted to use a variety of data, such as meterological conditions [4], biomass [5], and satellite images [6], however there remain pressing challenges in predicting wildfires accurately such as predicting the complex patterns in how the enivronment will respond [7].
   
- Most existing research in wildfire prediction incorporates high-dimensional features to classify potential areas where fire could spread. In one case, Tonini et al. use the slope of land sections, vegetation type, non-flammable area, and many other explanatory variables to classify the fire risk of every point of land in the Italian Liguria region as a probability [8]. The specific classification algorithm used was the Random Forest classification method. The training set used for this study included maps of 15 years of fire damage throughout the area. Final predictions were relatively accurate with 83.4% - 91.7% prediction accuracy year-to-year under the test datasest. A similar study from Rodrigues and Riva utilize features such as forest area, power line presence, protected area status, etc. to predict low or high risk in regions of Spain [9]. This work utilizes 30 years of wildfire data and deploys an assortment of regression methods - Random Forest, Boosted Regression Tree, Support Vector Machine, and logistic regression - to predict the fire risk. Again, the Random Forest algorithm proved promising with an AUC value of 0.746 vs 0.730, 0.709, and 0.686 for the others respectively. On the topic of deep learning, Sayad et al. make use of NASA satellite remote sensing data based on crop states, meteorological conditions, thermal intensity, and other measures in conjunction with a Multi-layer perceptron neural network and a separate SVM model to predict fire occurence to an accuracy of 98% and 97% respectively on a small dataset of Canadian fires [10].
+Existing research in wildfire spread prediction incorporates high-dimensional features in classification. Tonini et al. use the slope of land, vegetation type, non-flammable area, etc. to obtain the probability of fire in an Italian region [8]. The specific classification algorithm used was  Random Forest. 15 years of fire damage maps were used as training data. Final predictions ranged from 83.4% to 91.7% accuracy year-to-year under the test datasest. Rodrigues and Riva utilize features such as forest area, power line presence, protected area status, etc. to predict low/high risk in Spanish regions [9]. 30 years of wildfire data and many regression methods - Random Forest, Boosted Regression Tree, Support Vector Machine, and logistic regression - are used to predict fire risk. The Random Forest algorithm proves promising with an AUC value of 0.746 vs 0.730, 0.709, and 0.686 for the other algorithms respectively. Sayad et al. make use of NASA satellite remote sensing data based on crop states, meteorological conditions, thermal intensity, etc. in conjunction with a Multi-layer perceptron neural network and a separate SVM model to predict fire occurence to an accuracy of 98% and 97% respectively on a small dataset of Canadian fires [10].
 
-It is clear that higher dimensional datasets are common and perhaps required in fire prediction. Thus, to determine the most important features in our dataset, we will utilize a correlation matrix between our features to determine their interdependence. We will follow that with Principal Component Analysis to reduce our feature set to the most important, linearly independent features. To predict the wildfire risk of every location in our dataset, we will utilize an array of models - including Random Forest, SVM, and neural network-based classification. We will test each model indpendently of each other to maximize our accuracy.
+We will utilize a correlation matrix between our features, followed by Principal Component Analysis to reduce our feature set to the most important, linearly independent features. To predict the wildfire risk of every location in our dataset, we will utilize an array of models - including Random Forest, SVM, and neural network-based classification. Each model will be tested indpendently to maximize accuracy.
 
 ### Potential results
 We hope to apply a variety of machine learning techniques to determine features which are good predictors of wildfires and thus, can enable us to the probabilities of wildfires occuring within certain geographic clusters. Although it's difficult to say with certainty, we anticipate that the variables used in previous research in the field [4-6] will correlate highly with the presence of wildfires. This is a bit of a needle in the haystick problem in that we will need to filter out noise from the patterns we discover in our unsupervised/supervised learning methods to determine the features which are the best predictors of wildfires. 
@@ -28,12 +28,21 @@ We hope to apply a variety of machine learning techniques to determine features 
 
 ### Bibliography
 [1] https://www.iii.org/fact-statistic/facts-statistics-wildfires#:~:text=The%20LNU%20Lightning%20Complex%20was,million%20acres%20burned%20in%202018.
+
 [2] https://www.carbonbrief.org/factcheck-how-global-warming-has-increased-us-wildfires
+
 [3] https://www.kaggle.com/rtatman/188-million-us-wildfires
+
 [4] https://www.kaggle.com/rtatman/188-million-us-wildfires
+
 [5] https://gmd.copernicus.org/articles/12/3283/2019/gmd-12-3283-2019.pdf
+
 [6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717155/
+
 [7] https://www.frontiersin.org/articles/10.3389/fict.2018.00006/full
+
 [8] https://www.mdpi.com/2076-3263/10/3/105
+
 [9] https://www.sciencedirect.com/science/article/pii/S1364815214000814
+
 [10] https://www.sciencedirect.com/science/article/pii/S0379711218303941
