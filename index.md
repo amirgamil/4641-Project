@@ -23,6 +23,8 @@ Existing work in the past has attempted to use a variety of data, such as metero
 2. explain specific methods we would use on potentially what - e.g. random forest with X data
   2a) first part can be unsupervised learning to understand patterns in data - say clustering (K-means, GMM, mention specifics) to find patterns between features, what's correlated with what
   2b) supervised learning using our results from ^ - try a variety of models e.g. random forests, SVM, neural networks to determine best fit
+  
+  
 **A Machine Learning-Based Approach for Wildfire Susceptibility Mapping. The Case Study of the Liguria Region in Italy** 
 
 - Uses many different features, including elevation, vegetation type, neighboring vegetation, and many more
