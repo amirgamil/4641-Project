@@ -1,4 +1,6 @@
-# 4641-Project
+# Predicting Wildfire Clusters with Machine Learning
+
+Group 11: Amir, Ryan, Sid, Yuma
 
 ### Video
 https://www.youtube.com/watch?v=hQbDroFkt_Y&ab_channel=AmirGamil
@@ -22,7 +24,6 @@ We will utilize a correlation matrix between our features, followed by Principal
 ### Potential results/Discussion
 We hope to apply a variety of machine learning techniques to determine features that best predict wildfires, enabling us to predict the probabilities of wildfires occurring within certain geographic clusters. Although it's difficult to say with certainty, we anticipate that variables utilized in previous research[4-6] will correlate highly with the presence of wildfires. This is a needle in the haystack problem in that we will need to filter out noise from the patterns we discover in our unsupervised/supervised learning methods to determine the features which are the best predictors of wildfires.
 
-### Discussion
 
 ### Bibliography
 [1] “Facts + Statistics: Wildfires.” Insurance Information Institute, 2020, www.iii.org/fact-statistic/facts-statistics-wildfires. 
