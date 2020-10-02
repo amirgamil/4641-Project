@@ -25,22 +25,22 @@ We hope to apply a variety of machine learning techniques to determine features 
 ### Discussion
 
 ### Bibliography
-[1] https://www.iii.org/fact-statistic/facts-statistics-wildfires#:~:text=The%20LNU%20Lightning%20Complex%20was,million%20acres%20burned%20in%202018.
+[1] “Facts + Statistics: Wildfires.” Insurance Information Institute, 2020, www.iii.org/fact-statistic/facts-statistics-wildfires. 
 
-[2] https://www.carbonbrief.org/factcheck-how-global-warming-has-increased-us-wildfires
+[2] Hausfather, Zeke. “Factcheck: How Global Warming Has Increased US Wildfires.” Carbon Brief, 20 Aug. 2018, www.carbonbrief.org/factcheck-how-global-warming-has-increased-us-wildfires. 
 
-[3] https://www.kaggle.com/rtatman/188-million-us-wildfires
+[3] Tatman, Rachael. “1.88 Million US Wildfires.” Kaggle, 2020, www.kaggle.com/rtatman/188-million-us-wildfires. 
 
-[4] https://fireecology.springeropen.com/articles/10.4996/fireecology.1101106
+[4] Castelli, Mauro, et al. “Predicting Burned Areas of Forest Fires: an Artificial Intelligence Approach.” Fire Ecology, vol. 11, no. 1, 2015, pp. 106–118., doi:10.4996/fireecology.1101106. 
 
-[5] https://gmd.copernicus.org/articles/12/3283/2019/gmd-12-3283-2019.pdf
+[5] Chen, Jack, et al. “The FireWork v2.0 Air Quality Forecast System with Biomass Burning Emissions from the Canadian Forest Fire Emissions Prediction System v2.03.” Geoscientific Model Development, vol. 12, no. 7, 2019, pp. 3283–3310., doi:10.5194/gmd-12-3283-2019. 
 
-[6] https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2717155/
+[6] Potera, Carol. “CLIMATE CHANGE: Challenges of Predicting Wildfire Activity.” Environmental Health Perspectives, vol. 117, no. 7, July 2009, doi:10.1289/ehp.117-a293. 
 
-[7] https://www.frontiersin.org/articles/10.3389/fict.2018.00006/full
+[7] Subramanian, Sriram Ganapathi, and Mark Crowley. “Using Spatial Reinforcement Learning to Build Forest Wildfire Dynamics Models From Satellite Images.” Frontiers in ICT, vol. 5, 2018, doi:10.3389/fict.2018.00006. 
 
-[8] https://www.mdpi.com/2076-3263/10/3/105
+[8] Tonini, Marj, et al. “A Machine Learning-Based Approach for Wildfire Susceptibility Mapping. The Case Study of the Liguria Region in Italy.” Geosciences, vol. 10, no. 3, 2020, p. 105., doi:10.3390/geosciences10030105. 
 
-[9] https://www.sciencedirect.com/science/article/pii/S1364815214000814
+[9] Rodrigues, Marcos, and Juan De La Riva. “An Insight into Machine-Learning Algorithms to Model Human-Caused Wildfire Occurrence.” Environmental Modelling &amp; Software, vol. 57, 2014, pp. 192–201., doi:10.1016/j.envsoft.2014.03.003. 
 
-[10] https://www.sciencedirect.com/science/article/pii/S0379711218303941
+[10] Sayad, Younes Oulad, et al. “Predictive Modeling of Wildfires: A New Dataset and Machine Learning Approach.” Fire Safety Journal, vol. 104, 2019, pp. 130–146., doi:10.1016/j.firesaf.2019.01.006. 
