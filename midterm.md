@@ -31,7 +31,7 @@ Existing research in wildfire spread prediction incorporates high-dimensional fe
 We started by building a correlation matrix. TODO: add analysis and pictures
 
 #### PCA Results
-After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![](report materials/Screen Shot 2020-11-04 at 8.41.24 PM.png)
+After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](/report materials/Screen Shot 2020-11-04 at 8.41.24 PM.png)
 
 Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. The results from our unsupervised learning part of the project have helped motivate our next steps for the first line of attack for the classification task. 
 
