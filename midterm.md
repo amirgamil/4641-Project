@@ -39,11 +39,11 @@ Our results from PCA show that there is a lot of noise in our data. None of the 
 ### Kaggle Unsupervised Learning Results
 #### Correlation Matrix
 Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors. //Will add more
-![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance.png)
+![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance.PNG)
 
 #### PCA Results
 The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has 
-two components that were constructed vua PCA (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_PCA.png)
+two components that were constructed vua PCA (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_PCA.PNG)
 
 //Will update this part
 Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. Due to the amount of noise in our data, our PCA results / correlation matrices have helped motivate the first line of attack when choosing models for our supervised learning, wildfire classification task. Specifically, we will start with Random Forests, training on around 80% of data and testing on the other 20%. It's very likely that given the amount of noise, our models will overfit. Thus, we will try to reduce overfitting by using the most relevant features we have obtained from our unsupervised learning, adding regularization, and trying a range of different models/ensemble learning to compare the classification accuracies.
