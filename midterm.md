@@ -39,7 +39,7 @@ Our results from PCA show that there is a lot of noise in our data. None of the 
 ### Kaggle Unsupervised Learning Results
 #### Correlation Matrix
 Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors. //Will add more
-(https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance.png)
+![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance.png)
 
 #### PCA Results
 The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has 
