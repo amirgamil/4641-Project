@@ -12,71 +12,73 @@ The goal of this project is to build a predictive model to understand, analyze, 
 
 ### Data Collection
 
-We utilized a UCI dataset that consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We use Pandas to preprocess our datasets and create two NxD matrices corresponding to the UCI and Kaggle dataset respectively. The purpose of this is to perform experiments first independently on each dataset to find the most relevant features for our classification target task.
+Specifically, our data is divided into two independent datasets that we will apply feature engineering and data preprocessing independently on, before choosing the most relevant features for our downstream target classification task. The notebooks labeled explore_kaggle and Wildfire Prediction Notebook under the datasets/kaggle and datasets/uci respectively are where you can find all of the code for preprocessing.
 
-#### Kaggle Dataset
+#### [UCI Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/uci)
 
-We also utilized a kaggle dataset which consists of 1.88 million US wildfires spanning
-over 24 years of geo-referenced wildfire records from 1992 to 2015 within the United
-States. The kaggle dataset contains 39 features, but we decided that some of these
-features do not add information as they pertain to unique identifiers which are meant
-to be used in order to find more information on other reporting websites. While the
-data found there might be useful, these identifiers are not useful for performing
-unsupervised learning on this dataset specifically. Instead, we specifically selected
-for columns which contain useful data regarding the fires, which reduces our feature set
-from 39 features to 16 features.
+The first UCI dataset consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We perform several important steps on the data to preprocess it:
 
-##### Kaggle Data Cleaning
+1. Convert year/month dates into categorical features
+2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
 
-In this section we will summarize our efforts to clean the relevant features that
-are contained in the kaggle dataset.
+##### Before Preprocessing
 
-Our first step was to replace the FIRE_YEAR feature with a timestamp so we could
-later perform regression using the timestamp as a time value. We were given the
-year the fire took place along with the discovery day of year and specific discovery
-time as 3 separate columns. We merged these 3 features into 1 feature for
-DISCOVERY_TIMESTAMP, the timestamp at which the fire was discovered, and 1 feature for
-CONTAINED_TIMESTAMP, the timestamp at which the fire was declared contained.
+![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
 
-Note that we also chose to retain the Day of Year and Time features because those
-could be used as continuous features from which a model could learn about fires
-which happened at different times of years and different times of days. This would help
-a model analyze patterns on fires which happened during the winter time versus summer
-time and fires happening at night versus fires happening during the day.
+##### After Preprocessing
 
-Our next step was selecting the continuous features in order to properly standardize
-those variables. Since PCA works well with standardized data, we wanted to
-properly select the continuous features which could be properly used for dimensionality
-reduction. We did not include categorical variables because those would influence the
-dimensionality reduction algorithm when they should not be used for PCA.
+![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_after_preprocessing.png)
+
+#### [Kaggle Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/kaggle)
+
+The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it:
+
+1. Convert latitude and longitude to standarized forms
+2. Convert dates into timestamps with durations that can be processed by our models
+3. Scale the columns which contain numerical data - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+4. Convert string columns into categorical features
+
+##### Before Preprocessing
+
+![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_befre_preprocessing.png)
+
+##### After Preprocessing
+
+![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggledataset.png)
 
 ### Methods
 
-Remove?
 Although previous attempts at wildfire predicted has useed a variety of data, such as meteorological conditions [4], biomass [5], and satellite images [6], there remain challenges in predicting wildfires accurately and understanding the complex patterns by which the environment will respond. [7].
 
-TOREMOVE?
 Existing research in wildfire spread prediction incorporates high-dimensional features in classification. Tonini et al. use the slopes of land, vegetation type, non-flammable area, etc. to obtain the probability of fire in an Italian region via Random Forest with 15 years of fire damage maps were used as training data [8]. Final predictions ranged from 83.4% to 91.7% accuracy year-to-year under the test dataset. Rodrigues and Riva utilize features such as forest area, power line presence, protected area status, etc. to predict low/high risk in Spanish regions [9]. 30 years of wildfire data and used many regression methods - Random Forest, Boosted Regression Tree, Support Vector Machine, and logistic regression - to predict fire risk. The Random Forest algorithm proves promising with an AUC value of 0.746 vs 0.730, 0.709, and 0.686 for the other algorithms respectively. Sayad et al. use NASA satellite remote sensing data based on crop states, meteorological conditions, thermal intensity, etc. in conjunction with a Multi-layer perceptron neural network and a separate SVM model to predict fire occurrence to an accuracy of 98% and 97% respectively on a small dataset of Canadian fires [10].
 
-### Potential results/Discussion
+Drawing on the above research, in order to build the most robust possible classification model, we divide our project into two steps: unsupervised learning in order to apply feature engineering and supervised learning where we test different classification models (e.g. Random Forests, Neural Networks, SVMs etc.) to find the most suited one for this task. In the feature engineering/unsupervised learning step, we:
+
+1. Apply PCA to find the best, most relevant, linearly independent feautres
+2. Build covariance/correlation matrices to understand the linear correlation between our different features
+
+### Results/Discussion
 
 ### UCI Unsupervised Learning Results
 
 #### Correlation Matrix
 
-We started by building a correlation matrix. TODO: add analysis and pictures
+We started by building a correlation matrix, which depict the factors' correlations with each other via a gradient
+![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_covariance.PNG)
+
+Although most variables seem to be uncorrelated, there are some interesting findings. Firstly, feature X seems to be the most correlated feature with our groundtruth labels Y - with a positive correlation of around 0.54. This suggests that it will play an essential role when we do our downstream classification task and will aid the classification model greatly, especially since none of the other variables seem to be linearly correlated with our labels. Secondly, features "FFMC", "DMC", "DC", "ISI", "temp" are highly correlated with each other. Intuitively, this makes sense since these features are all related with fuel and moisture content and thus, a change in one of them is likely to cause a change in the others. Thirdly, although there were no strong linear correlations between our features and label Y (besides the feature X), this does not necessarily mean that these features are not relevant or useful. One way we plan on exploring this is using neural networks which are good function approximators and may unconver higher order polynomial relationships between our features and our labels that can aid the classifcation model.
 
 #### PCA Results
 
-After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/Screen%20Shot%202020-11-04%20at%208.41.24%20PM.png)
+After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_PCA.PNG)
 
-Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. Due to the amount of noise in our data, our PCA results / correlation matrices have helped motivate the first line of attack when choosing models for our supervised learning, wildfire classification task. Specifically, we will start with Random Forests, training on around 80% of data and testing on the other 20%. It's very likely that given the amount of noise, our models will overfit. Thus, we will try to reduce overfitting by using the most relevant features we have obtained from our unsupervised learning, adding regularization, and trying a range of different models/ensemble learning to compare the classification accuracies.
+Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on many factors and the size of this dataset is relatively small. Because two dimensions were not enough to accurately represent our data, we will first plan on using all of our features then use backward selection with Lasso to select the most relevant features for our target classification task.
 
 ### Kaggle Unsupervised Learning Results
 
 #### Correlation Matrix
 
-Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors. The correlation matrix depicts the factors' correlation via a gradient.
+Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors.
 ![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance.PNG)
 
 ![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance_more.PNG)
@@ -113,8 +115,11 @@ are unpredictable and have different natures, other fires might be predictable
 for specific states. For example, California, a state known for having
 many wildfires, was among those which had a predicatable clustering pattern.
 
-//Remove?
-We hope to apply a variety of machine learning techniques to determine features that best predict wildfires, enabling us to predict the probabilities of wildfires occurring within certain geographic clusters. Although it's difficult to say with certainty, we anticipate that variables utilized in previous research[4-6] will correlate highly with the presence of wildfires. This is a needle in the haystack problem in that we will need to filter out noise from the patterns we discover in our unsupervised/supervised learning methods to determine the features which are the best predictors of wildfires.
+---
+
+### Next Steps
+
+Now that we have completed our unsupervised learning part of the project, we plan on moving on to the supervised portion where we will test different models to build a robust and accurate one at detecting wildfires.
 
 ---
 
