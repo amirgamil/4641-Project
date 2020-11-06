@@ -27,7 +27,7 @@ The first UCI dataset consists of 517 entries with 13 features describing wildfi
 
 ##### After Preprocessing
 
-![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_after_preprocessing.png)
+![UCI Dataset](/report%20materials/uci_after_preprocessing.png)
 
 #### [Kaggle Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/kaggle)
 
@@ -40,11 +40,11 @@ The second dataset is a Kaggle dataset consisting of data from over 1.88 million
 
 ##### Before Preprocessing
 
-![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_befre_preprocessing.png)
+![Kaggle Dataset](/report%20materials/kaggle_befre_preprocessing.png)
 
 ##### After Preprocessing
 
-![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggledataset.png)
+![Kaggle Dataset](/report%20materials/kaggledataset.png)
 
 ### Methods
 
@@ -64,13 +64,13 @@ Drawing on the above research, in order to build the most robust possible classi
 #### Correlation Matrix
 
 We started by building a correlation matrix, which depict the factors' correlations with each other via a gradient
-![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_covariance.PNG)
+![Correlation Matrix Results](/report%20materials/uci_covariance.PNG)
 
 Although most variables seem to be uncorrelated, there are some interesting findings. Firstly, feature X seems to be the most correlated feature with our groundtruth labels Y - with a positive correlation of around 0.54. This suggests that it will play an essential role when we do our downstream classification task and will aid the classification model greatly, especially since none of the other variables seem to be linearly correlated with our labels. Secondly, features "FFMC", "DMC", "DC", "ISI", "temp" are highly correlated with each other. Intuitively, this makes sense since these features are all related with fuel and moisture content and thus, a change in one of them is likely to cause a change in the others. Thirdly, although there were no strong linear correlations between our features and label Y (besides the feature X), this does not necessarily mean that these features are not relevant or useful. One way we plan on exploring this is using neural networks which are good function approximators and may unconver higher order polynomial relationships between our features and our labels that can aid the classifcation model.
 
 #### PCA Results
 
-After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_PCA.PNG)
+After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](/report%20materials/uci_PCA.PNG)
 
 Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on many factors and the size of this dataset is relatively small. Because two dimensions were not enough to accurately represent our data, we will first plan on using all of our features then use backward selection with Lasso to select the most relevant features for our target classification task.
 
@@ -79,7 +79,7 @@ Our results from PCA show that there is a lot of noise in our data. None of the 
 #### Correlation Matrix
 
 Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors.
-![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance.PNG)
+![Correlation Matrix Results](/report%20materials/kaggle_covariance.PNG)
 
 ![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance_more.PNG)
 
@@ -88,7 +88,7 @@ The correlation matrix depicts that there are, in fact, relationships between fa
 #### PCA Results
 
 The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has
-two components that were constructed via PCA. (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_PCA.PNG)
+two components that were constructed via PCA. (different class labels correspond to different colors). ![PCA Results](/report%20materials/kaggle_PCA.PNG)
 
 The PCA of the Kaggle data set depicts two principal components and the casual factors as the labels. Altough there seems to be a trace of clustering, they are still not clear enough to the point where the model could be used to predict the casual factors. Indeed, the two components are only able to capture 36% of the variance. In order to capture 95% of the variance, eight components were necessary. This makes sense given our data cleaning process because the final dataset contained 9 features which were relatively distinct from each other. Thus, the PCA algorithm agreed with us and would have only
 been able to condense/compress the information we supplied it into 8 components without
