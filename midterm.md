@@ -32,7 +32,7 @@ The second dataset is a Kaggle dataset consisting of data from over 1.88 million
 3. Scale the columns which contain numerical data - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
 4. Convert string columns into categorical features
 ##### Before Preprocessing
-![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_befre_preprocessing.png)
+![Kaggle Dataset](report materials/uci_before_preprocessing.png "uci_before_preprocessing.png")
 ##### After Preprocessing
 ![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggledataset.png)
 
