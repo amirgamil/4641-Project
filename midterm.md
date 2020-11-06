@@ -19,7 +19,7 @@ Specifically, our data is divided into two independent datasets that we will app
 ##### Before Preprocessing
 ![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
 ##### After Preprocessing
-![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
+![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_after_preprocessing.png)
 
 The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it
 1. Convert latitude and longitude to standarized forms
