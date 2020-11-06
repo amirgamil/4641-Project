@@ -88,12 +88,8 @@ The correlation matrix depicts that there are, in fact, relationships between fa
 
 #### PCA Results
 
-# <<<<<<< HEAD
-
 The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has
 two components that were constructed via PCA. (different class labels correspond to different colors). ![PCA Results](/report%20materials/kaggle_PCA.PNG)
-
-> > > > > > > 2e73c1e5979b2e6798bd313372adfa51b94f1f28
 
 The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has
 two components that were constructed via PCA. (different class labels correspond to different colors). ![PCA Results](/report%20materials/kaggle_PCA.PNG)
