@@ -20,7 +20,7 @@ The first UCI dataset consists of 517 entries with 13 features describing wildfi
 1. Convert year/month dates into categorical features
 2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
 ##### Before Preprocessing
-![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
+![UCI Dataset](/4641-Project/report materials/uci_before_preprocessing.png "")
 ##### After Preprocessing
 ![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_after_preprocessing.png)
 
