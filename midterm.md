@@ -27,7 +27,7 @@ The first UCI dataset consists of 517 entries with 13 features describing wildfi
 
 ##### After Preprocessing
 
-![UCI Dataset](/report%20materials/uci_after_preprocessing.png)
+![UCI Dataset](report%20materials/uci_after_preprocessing.png)
 
 #### [Kaggle Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/kaggle)
 
@@ -40,11 +40,11 @@ The second dataset is a Kaggle dataset consisting of data from over 1.88 million
 
 ##### Before Preprocessing
 
-![Kaggle Dataset](/report%20materials/kaggle_befre_preprocessing.png)
+![Kaggle Dataset](report%20materials/kaggle_befre_preprocessing.png)
 
 ##### After Preprocessing
 
-![Kaggle Dataset](/report%20materials/kaggledataset.png)
+![Kaggle Dataset](report%20materials/kaggledataset.png)
 
 ### Methods
 
@@ -64,13 +64,13 @@ Drawing on the above research, in order to build the most robust possible classi
 #### Correlation Matrix
 
 We started by building a correlation matrix, which depict the factors' correlations with each other via a gradient
-![Correlation Matrix Results](/report%20materials/uci_covariance.PNG)
+![Correlation Matrix Results](report%20materials/uci_covariance.PNG)
 
 Although most variables seem to be uncorrelated, there are some interesting findings. Firstly, feature X seems to be the most correlated feature with our groundtruth labels Y - with a positive correlation of around 0.54. This suggests that it will play an essential role when we do our downstream classification task and will aid the classification model greatly, especially since none of the other variables seem to be linearly correlated with our labels. Secondly, features "FFMC", "DMC", "DC", "ISI", "temp" are highly correlated with each other. Intuitively, this makes sense since these features are all related with fuel and moisture content and thus, a change in one of them is likely to cause a change in the others. Thirdly, although there were no strong linear correlations between our features and label Y (besides the feature X), this does not necessarily mean that these features are not relevant or useful. One way we plan on exploring this is using neural networks which are good function approximators and may unconver higher order polynomial relationships between our features and our labels that can aid the classifcation model.
 
 #### PCA Results
 
-After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](/report%20materials/uci_PCA.PNG)
+After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](report%20materials/uci_PCA.PNG)
 
 Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on many factors and the size of this dataset is relatively small. Because two dimensions were not enough to accurately represent our data, we will first plan on using all of our features then use backward selection with Lasso to select the most relevant features for our target classification task.
 
@@ -79,7 +79,7 @@ Our results from PCA show that there is a lot of noise in our data. None of the 
 #### Correlation Matrix
 
 Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors.
-![Correlation Matrix Results](/report%20materials/kaggle_covariance.PNG)
+![Correlation Matrix Results](report%20materials/kaggle_covariance.PNG)
 
 The correlation matrix depicts that there are, in fact, relationships between factors or a lack thereof. It is clear that there is one pair of factors that have a high correlation: "DISCOVERY_DOY" and "CONT_DOY". In fact, they have a perfect positive correlation of 1. These factors stand for the date of year in which the fire was discovered and contained, respectively. This is logical as the timing of the fire starting should be heavily related to when the fire is extinguished. Because of their high correlation, it would be wasteful to include both as this would require more space and time as they both represent the same data trends. Moreover, the "CONT_DOY" is dependent on the "DISCOVERY_DOY", and so keeping the "DISCOVERY_DOY" would be more optimal. Similarly, the correlation between "DISCOVERY_TIME" and "CONT_TIME" is 0.38. The factors stand for the time of day in which the fire was discovered and contained, repsectively. Again, these two factors would logically be related and thereby may not be necessary for including both in the analysis ("DISCOVERY_TIME" would be more favorable to keep following a similar reasoning to before). The correlation between "DISCOVERY_TIME" and "DISCOVERY_DOY" has the lowest absolute correlation of 0.04. This would indicate that it would be beneficial to keep both factors if they are correlated to the prediction of labels. Similarly, "DISCOVERY_TIME" and "FIRE_SIZE" have the second lowest absolute correlation of 0.014 thereby indicate a potential for the two factors to be beneficial to the prediction of labels. It is important here to note that regardless of a low absolute correlation, it is still crucial to determine the factors' relationship to the labels of interest as this correlation would help to further identify important factors.
 
@@ -94,18 +94,18 @@ drastically compromising on information preserved.
 In this way, it is clear that two components were not enough to represent the complexity of the dataset. Moreover, there may be some noise as aforementioned. Moving forward, we will utilize the eight components when implementing supervised learning. Although dimensionality reduction would help to mitigate risks of overfitting, beginning with the 95% of variance captured by the eight components would be more favorable as an initial step. Afterwards, if overfitting is indeed observed, the number of dimensions will be reduced as depicted by the PCA. During this iterative process, various approaches/models will be used to best classify the data.
 
 We also performed a principal component analysis with 3 components and found that the retianed variance was higher but still only 53%.
-![3D Kaggle PCA Results: Cause](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/3D_vis.png)
+![3D Kaggle PCA Results: Cause](report%20materials/3D_vis.png)
 
 Additionally, we performed PCA but used States as the target variable,
 which presented these graphs:
 
-![Kaggle PCA Results: State](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_state_PCA.png)
+![Kaggle PCA Results: State](report%20materials/kaggle_state_PCA.png)
 
-![3D Kaggle PCA Results: State](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_state_PCA3D.png)
+![3D Kaggle PCA Results: State](report%20materials/kaggle_state_PCA3D.png)
 
 With larger samples taken:
 
-![3D Kaggle PCA Results: State with larger sample](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_state_PCA3D_more.png)
+![3D Kaggle PCA Results: State with larger sample](report%20materials/kaggle_state_PCA3D_more.png)
 
 In these cases, we note that some targets were clustered well using the PCAs
 we performed on the kaggle datasets. This may indicate that while some fires
