@@ -12,19 +12,36 @@ Wildfires are a major threat to our environment, destroying natural habitats and
 The goal of this project is to build a predictive model to understand, analyze, and detect patterns in data, allowing us to forecast the locations of wildfires as soon as possible. We have access to a dataset of 1.88 million wildfires in the United States [3], providing 24 years of geo-referenced wildfire records from 1992 to 2015. We are interested in exploring this dataset and applying machine learning techniques to identify patterns or clusters related to identifying causes of wildfires, predicting sizes of wildfires, or identifying wildfire "hotspots"(areas which are more prone to wildfires). The goal is to use machine learning techniques to aid in a real-world application of proper allocation of firefighter resources.
 
 ### Data Collection
-We utilized a UCI dataset that consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We use Pandas to preprocess our datasets and create two NxD matrices corresponding to the UCI and Kaggle dataset respectively. The purpose of this is to perform experiments first independently on each dataset to find the most relevant features for our classification target task
+Specifically, our data is divided into two independent datasets that we will apply feature engineering and data preprocessing independently on, before choosing the most relevant features for our downstream target classigication task. The first UCI dataset consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We perform several important steps on the data to preprocess it. The notebooks labeled explore_kaggle and Wildfire Prediction Notebook under the datasets/kaggle and datasets/uci respectively are where you can find all of the code for preprocessing.
+
+1. Convert year/month dates into categorical features
+2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+##### Before Preprocessing
+![UCI Dataset]()
+##### After Preprocessing
+![UCI Dataset]()
+
+The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it
+1. Convert latitude and longitude to standarized forms
+2. Convert dates into timestamps with durations that can be processed by our models
+3. Scale the columns which contain numerical data - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+4. Convert string columns into categorical features
+##### Before Preprocessing
+![UCI Dataset]()
+##### After Preprocessing
+![UCI Dataset]()
+
 ### Methods
 
-Remove?
 Although previous attempts at wildfire predicted has useed a variety of data, such as meteorological conditions [4], biomass [5], and satellite images [6], there remain challenges in predicting wildfires accurately and understanding the complex patterns by which the environment will respond. [7].
 
-TOREMOVE?
 Existing research in wildfire spread prediction incorporates high-dimensional features in classification. Tonini et al. use the slopes of land, vegetation type, non-flammable area, etc. to obtain the probability of fire in an Italian region via Random Forest with 15 years of fire damage maps were used as training data [8]. Final predictions ranged from 83.4% to 91.7% accuracy year-to-year under the test dataset. Rodrigues and Riva utilize features such as forest area, power line presence, protected area status, etc. to predict low/high risk in Spanish regions [9]. 30 years of wildfire data and used many regression methods - Random Forest, Boosted Regression Tree, Support Vector Machine, and logistic regression - to predict fire risk. The Random Forest algorithm proves promising with an AUC value of 0.746 vs 0.730, 0.709, and 0.686 for the other algorithms respectively. Sayad et al. use NASA satellite remote sensing data based on crop states, meteorological conditions, thermal intensity, etc. in conjunction with a Multi-layer perceptron neural network and a separate SVM model to predict fire occurrence to an accuracy of 98% and 97% respectively on a small dataset of Canadian fires [10].
 
+In order to build the most robust possible classification model, we divide our project into two steps: unsupervised learning in order to apply feature engineering and supervised learning where we test different classification models (e.g. Random Forests, Neural Networks, SVMs etc.) to find the most suited one for this task. In the feature engineering step, we do two things for each dataset
+1. Apply PCA to find the best, most relevant, linearly independent feautres
+2. Build covariance matrices to understand the linear correlation between our different variables
 
-
-
-### Potential results/Discussion
+### Results/Discussion
 
 ### UCI Unsupervised Learning Results
 #### Correlation Matrix
@@ -33,7 +50,7 @@ We started by building a correlation matrix. TODO: add analysis and pictures
 #### PCA Results
 After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/Screen%20Shot%202020-11-04%20at%208.41.24%20PM.png)
 
-Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. Due to the amount of noise in our data, our PCA results / correlation matrices have helped motivate the first line of attack when choosing models for our supervised learning, wildfire classification task. Specifically, we will start with Random Forests, training on around 80% of data and testing on the other 20%. It's very likely that given the amount of noise, our models will overfit. Thus, we will try to reduce overfitting by using the most relevant features we have obtained from our unsupervised learning, adding regularization, and trying a range of different models/ensemble learning to compare the classification accuracies.
+Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. Due to the amount of noise in our data, our PCA results / correlation matrices have helped motivate the first line of attack when choosing models for our supervised learning, wildfire classification task. However, 
 
 
 ### Kaggle Unsupervised Learning Results
