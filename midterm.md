@@ -17,9 +17,9 @@ Specifically, our data is divided into two independent datasets that we will app
 1. Convert year/month dates into categorical features
 2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
 ##### Before Preprocessing
-![UCI Dataset]()
+![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
 ##### After Preprocessing
-![UCI Dataset]()
+![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
 
 The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it
 1. Convert latitude and longitude to standarized forms
@@ -27,9 +27,9 @@ The second dataset is a Kaggle dataset consisting of data from over 1.88 million
 3. Scale the columns which contain numerical data - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
 4. Convert string columns into categorical features
 ##### Before Preprocessing
-![UCI Dataset]()
+![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_befre_preprocessing.png)
 ##### After Preprocessing
-![UCI Dataset]()
+![Kaggle Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggledataset.png)
 
 ### Methods
 
@@ -45,12 +45,14 @@ In order to build the most robust possible classification model, we divide our p
 
 ### UCI Unsupervised Learning Results
 #### Correlation Matrix
-We started by building a correlation matrix. TODO: add analysis and pictures
+We started by building a correlation matrix. 
+
+![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_covariance.PNG)
 
 #### PCA Results
 After building a correlation matrix, we perform Principal Component Analysis to reduce our feature set to the most important, linearly independent features. The figure below shows the results of our plots where we plot our data in the Z-space separated by its class label (different class labels correspond to different colors). ![PCA Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/Screen%20Shot%202020-11-04%20at%208.41.24%20PM.png)
 
-Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. Due to the amount of noise in our data, our PCA results / correlation matrices have helped motivate the first line of attack when choosing models for our supervised learning, wildfire classification task. However, 
+Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels. Naturally, this makes sense since wildfire intensity depends on hundreds if not thousands of factors and this dataset represents only a very small subset of potential features. Because 2 dimensions was not enough to accurately represent our data, we will first plan on using all of our features then use backward selection with Lasso to select the most relevant features for our target classification task.
 
 
 ### Kaggle Unsupervised Learning Results
@@ -66,9 +68,9 @@ two components that were constructed via PCA. (different class labels correspond
 
 The PCA of the Kaggle data set depicts two principal components and the casual factors as the labels. Altough there seems to be a trace of clustering, they are still not clear enough to the point where the model could be used to predict the casual factors. Indeed, the two components are only able to capture 35% of the variance. In order to capture 95% of the variance, eight components were necessary. In this way, it is clear that two components were not enough to represent the complexity of the dataset. Moreover, there may be some noise as aforementioned. Moving forward, we will utilize the eight components when implementing supervised learning. Although dimensionality reduction would help to mitigate risks of overfitting, beginning with the 95% of variance captured by the eight components would be more favorable as an initial step. Afterwards, if overfitting is indeed observed, the number of dimensions will be reduced as depicted by the PCA. During this iterative process, various approaches/models will be used to best classify the data. 
 
+### Next Steps
+Now that we have completed our unsupervised learning part of the project, we plan on moving on to the supervised portion where we test different models to build a robust and accurate one at detecting wildfires. 
 
-//Remove?
-We hope to apply a variety of machine learning techniques to determine features that best predict wildfires, enabling us to predict the probabilities of wildfires occurring within certain geographic clusters. Although it's difficult to say with certainty, we anticipate that variables utilized in previous research[4-6] will correlate highly with the presence of wildfires. This is a needle in the haystack problem in that we will need to filter out noise from the patterns we discover in our unsupervised/supervised learning methods to determine the features which are the best predictors of wildfires.
 -----
 
 ### Bibliography
