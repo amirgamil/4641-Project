@@ -23,7 +23,7 @@ The first UCI dataset consists of 517 entries with 13 features describing wildfi
 
 ##### Before Preprocessing
 
-![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_before_preprocessing.png)
+![UCI Dataset](/report%20materials/uci_before_preprocessing.png)
 
 ##### After Preprocessing
 
