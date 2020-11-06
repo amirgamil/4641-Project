@@ -81,11 +81,21 @@ Our results from PCA show that there is a lot of noise in our data. None of the 
 Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors.
 ![Correlation Matrix Results](/report%20materials/kaggle_covariance.PNG)
 
+Using the data from the Kaggle dataset, a correlation matrix was constructed to determine the relationship between the factors.
+![Correlation Matrix Results](/report%20materials/kaggle_covariance.PNG)
+
 ![Correlation Matrix Results](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/kaggle_covariance_more.PNG)
 
 The correlation matrix depicts that there are, in fact, relationships between factors or a lack thereof. It is clear that there is one pair of factors that have a high correlation: "DISCOVERY_DOY" and "CONT_DOY". In fact, they have a perfect positive correlation of 1. These factors stand for the date of year in which the fire was discovered and contained, respectively. This is logical as the timing of the fire starting should be heavily related to when the fire is extinguished. Because of their high correlation, it would be wasteful to include both as this would require more space and time as they both represent the same data trends. Moreover, the "CONT_DOY" is dependent on the "DISCOVERY_DOY", and so keeping the "DISCOVERY_DOY" would be more optimal. Similarly, the correlation between "DISCOVERY_TIME" and "CONT_TIME" is 0.38. The factors stand for the time of day in which the fire was discovered and contained, repsectively. Again, these two factors would logically be related and thereby may not be necessary for including both in the analysis ("DISCOVERY_TIME" would be more favorable to keep following a similar reasoning to before). The correlation between "DISCOVERY_TIME" and "DISCOVERY_DOY" has the lowest absolute correlation of 0.04. This would indicate that it would be beneficial to keep both factors if they are correlated to the prediction of labels. Similarly, "DISCOVERY_TIME" and "FIRE_SIZE" have the second lowest absolute correlation of 0.014 thereby indicate a potential for the two factors to be beneficial to the prediction of labels. It is important here to note that regardless of a low absolute correlation, it is still crucial to determine the factors' relationship to the labels of interest as this correlation would help to further identify important factors.
 
 #### PCA Results
+
+# <<<<<<< HEAD
+
+The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has
+two components that were constructed via PCA. (different class labels correspond to different colors). ![PCA Results](/report%20materials/kaggle_PCA.PNG)
+
+> > > > > > > 2e73c1e5979b2e6798bd313372adfa51b94f1f28
 
 The data from the Kaggle dataset underwent a similar process to the UCI dataset. The result of the Principal Component Analysis is depicted in the plot below. The figure has
 two components that were constructed via PCA. (different class labels correspond to different colors). ![PCA Results](/report%20materials/kaggle_PCA.PNG)
