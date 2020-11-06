@@ -14,6 +14,7 @@ The goal of this project is to build a predictive model to understand, analyze, 
 ### Data Collection
 Specifically, our data is divided into two independent datasets that we will apply feature engineering and data preprocessing independently on, before choosing the most relevant features for our downstream target classigication task. The first UCI dataset consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We perform several important steps on the data to preprocess it. The notebooks labeled explore_kaggle and Wildfire Prediction Notebook under the datasets/kaggle and datasets/uci respectively are where you can find all of the code for preprocessing.
 
+#### [UCI Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/uci)
 1. Convert year/month dates into categorical features
 2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
 ##### Before Preprocessing
@@ -21,6 +22,7 @@ Specifically, our data is divided into two independent datasets that we will app
 ##### After Preprocessing
 ![UCI Dataset](https://github.com/amirgamil/4641-Project/blob/master/report%20materials/uci_after_preprocessing.png)
 
+#### [Kaggle Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/kaggle)
 The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it
 1. Convert latitude and longitude to standarized forms
 2. Convert dates into timestamps with durations that can be processed by our models
