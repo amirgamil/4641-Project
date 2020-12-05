@@ -1,0 +1,9 @@
+logs/
+saved/
+tmp_reg/
+tmp1/
+tmp2/
+.ipynb_checkpoints/
+*.sqlite
+sample_kaggle.csv
+explore_deep_learning.ipynb
