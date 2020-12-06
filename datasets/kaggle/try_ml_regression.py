@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
 cnx = sqlite3.connect("FPA_FOD_20170508.sqlite")
-df = pd.read_sql_query("SELECT * FROM Fires LIMIT 200000", cnx)
+df = pd.read_sql_query("SELECT * FROM Fires LIMIT 20000", cnx)
 
 
 df = df[['FIRE_YEAR', 'DISCOVERY_DATE', 'DISCOVERY_DOY', 'DISCOVERY_TIME',
@@ -71,7 +71,7 @@ size = len(dataset)
 batch_size = 32
 test_size = int(0.2 * size) # 5000
 val_size = int(0.2 * size) # 10000
-epochs = 10
+epochs = 5
 
 cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_dir, save_weights_only=True, save_freq=5*batch_size)
 
@@ -89,8 +89,7 @@ val = ds.skip(test_size).take(val_size).batch(batch_size)
 
 
 model = keras.Sequential([
-    keras.layers.Dense(32, input_shape=(len(columns),), activation='relu'),
-    keras.layers.Dense(32, activation='relu'),
+    keras.layers.Dense(16, input_shape=(len(columns),), activation='relu'),
     keras.layers.Dense(16, activation='relu'),
     keras.layers.Dense(1)
 ])
@@ -99,7 +98,7 @@ model.compile(optimizer=tf.train.AdamOptimizer(0.001),
             loss=tf.keras.losses.MeanSquaredError(),
             metrics=['accuracy'])
 
-history = model.fit(train, epochs=epochs, callbacks=[cp_callback], validation_data=val)
+history = model.fit(train, epochs=epochs, callbacks=[cp_callback, es_callback], validation_data=val)
 
 results = model.evaluate(test)
 print("test loss, test acc: ", results)

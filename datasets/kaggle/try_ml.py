@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
 cnx = sqlite3.connect("FPA_FOD_20170508.sqlite")
-df = pd.read_sql_query("SELECT * FROM Fires LIMIT 200000", cnx)
+df = pd.read_sql_query("SELECT * FROM Fires LIMIT 20000", cnx)
 
 
 df = df[['FIRE_YEAR', 'DISCOVERY_DATE', 'DISCOVERY_DOY', 'DISCOVERY_TIME',
@@ -64,12 +64,12 @@ dataset = dd[columns]
 std_scale = StandardScaler().fit(dataset)
 dataset = std_scale.transform(dataset)
 
-checkpoint_dir = "tmp2/checkpoint"
+checkpoint_dir = "tmp3/checkpoint"
 size = len(dataset)
 batch_size = 16
 test_size = int(0.2 * size) # 5000
 val_size = int(0.3 * size) # 10000
-epochs = 10
+epochs = 3
 
 cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_dir, save_weights_only=True, save_freq=5*batch_size)
 
@@ -87,8 +87,7 @@ val = ds.skip(test_size).take(val_size).batch(batch_size)
 
 
 model = keras.Sequential([
-    keras.layers.Dense(32, input_shape=(6,), activation='relu'),
-    keras.layers.Dense(32, activation='relu'),
+    keras.layers.Dense(16, input_shape=(6,), activation='relu'),
     keras.layers.Dense(16, activation='relu'),
     keras.layers.Dense(numOuts, activation='softmax')
 ])
