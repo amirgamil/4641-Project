@@ -25,6 +25,10 @@ We will utilize a correlation matrix between our features, followed by Principal
 #### UCI Dataset
 For each dataset, we attempted to classify our test wildfire data by fire size code (A - G). In our dataset containing Portuguese National Park fires, we observed a **52.9%** classification accuracy using a Random Forest classification model, **49.0%** accuracy with an AdaBoosted Random Forest classifier, **31.7%** accuracy with a Complement Naive Bayes classifier, **28.8%** accuracy with a Gaussian Naive Bayes classifier, **51.9%** accuracy with a Support Vector Machine classifier, and a **49.0%** accuracy with a Neural Network. With our dataset of United States wildfires, we approached 
 
+![UCI Dataset](report%20materials/supervised_results_uci.png)
+
+![UCI Dataset](report%20materials/nn_training_uci.png)
+
 A potential reason for our inconclusive classification results may lie in the size of the Portuguese National Park dataset. The dataset only contains 517 instances to analyze. It does, however, have a wide range of features to analyze. The bottleneck in our analysis may be lack of sufficent amounts of data to launch a large-scale classifier on. 
 
 ### Conclusion
