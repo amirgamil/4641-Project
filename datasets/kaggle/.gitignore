@@ -4,6 +4,7 @@ tmp_reg/
 tmp1/
 tmp2/
 tmp3/
+tmp_cat/
 .ipynb_checkpoints/
 *.sqlite
 sample_kaggle.csv
