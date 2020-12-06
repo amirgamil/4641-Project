@@ -13,6 +13,44 @@ Wildfires are a major threat to our environment, destroying natural habitats and
 
 The goal of this project is to build a predictive model to understand, analyze, and detect patterns in data, allowing us to forecast the locations of wildfires as soon as possible. We have access to a dataset of 1.88 million wildfires in the United States [3], providing 24 years of geo-referenced wildfire records from 1992 to 2015. We are interested in exploring this dataset and applying machine learning techniques to identify patterns or clusters related to identifying causes of wildfires, predicting sizes of wildfires, or identifying wildfire "hotspots"(areas which are more prone to wildfires). The goal is to use machine learning techniques to aid in a real-world application of proper allocation of firefighter resources.
 
+
+### Data Collection
+
+Specifically, our data is divided into two independent datasets that we will apply feature engineering and data preprocessing independently on, before choosing the most relevant features for our downstream target classification task. The notebooks labeled explore_kaggle and Wildfire Prediction Notebook under the datasets/kaggle and datasets/uci respectively are where you can find all of the code for preprocessing.
+
+#### [UCI Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/uci)
+
+The first UCI dataset consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We perform several important steps on the data to preprocess it:
+
+1. Convert year/month dates into categorical features
+2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+
+##### Before Preprocessing
+
+<img src="report%20materials/uci_before_preprocessing.png">
+
+##### After Preprocessing
+
+![UCI Dataset](report%20materials/uci_after_preprocessing.png)
+
+#### [Kaggle Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/kaggle)
+
+The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it:
+
+1. Convert latitude and longitude to standarized forms
+2. Convert dates into timestamps with durations that can be processed by our models
+3. Scale the columns which contain numerical data - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+4. Convert string columns into categorical features
+
+##### Before Preprocessing
+
+![Kaggle Dataset](report%20materials/kaggle_befre_preprocessing.png)
+
+##### After Preprocessing
+
+![Kaggle Dataset](report%20materials/kaggledataset.png)
+
+
 ### Methods
 
 Although previous attempts at wildfire predicted has useed a variety of data, such as meteorological conditions [4], biomass [5], and satellite images [6], there remain challenges in predicting wildfires accurately and understanding the complex patterns by which the environment will respond. [7].
