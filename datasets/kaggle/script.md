@@ -69,3 +69,17 @@ With our kaggle Neural network results, we found there we got around 47% accurac
 the cause of a fire.
 
 For kaggle regression, we got 5% accuracy to predict fire size.
+
+### Random Forest
+
+We utilized random forests due to the practicality provided by the limited number of features. This allowed for the drawback of typically high training times to be decreased significantly. Moreover, ensemble learning provided the means to mitigate potential overfitting. We implemented random forests to predict the cause and size of the fires.
+
+---
+
+Random Forest results
+
+With the Kaggle data set, we achieved 48%-50.3% accuracy on our test dataset for classifying the cause of the woldfires.
+
+For predicting the size of the fire, the accuracy decreased to around 2.5%-4%.
+
+In both cases, the accuracy achieved reflects a similar trend to the results from deep learning. The accuracy for predicting the cause of the wildfire was around 50% while the accuracy for predicting the size of the fire was far less, about 5% at best.
