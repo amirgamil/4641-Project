@@ -3,7 +3,7 @@
 Group 11: Amir, Ryan, Sid, Yuma
 
 ### Video
-https://www.youtube.com/watch?v=hQbDroFkt_Y&ab_channel=AmirGamil
+
 
 ### Introduction/Background
 
@@ -21,9 +21,12 @@ Existing research in wildfire spread prediction incorporates high-dimensional fe
 
 We will utilize a correlation matrix between our features, followed by Principal Component Analysis to reduce our feature set to the most important, linearly independent features. To predict the wildfire risk of every location in our dataset, we will utilize an array of models - including Random Forest, SVM, and neural network-based classification. Each model will be tested independently to maximize accuracy.
 
-### Potential results/Discussion
-We hope to apply a variety of machine learning techniques to determine features that best predict wildfires, enabling us to predict the probabilities of wildfires occurring within certain geographic clusters. Although it's difficult to say with certainty, we anticipate that variables utilized in previous research[4-6] will correlate highly with the presence of wildfires. This is a needle in the haystack problem in that we will need to filter out noise from the patterns we discover in our unsupervised/supervised learning methods to determine the features which are the best predictors of wildfires.
+### Results/Discussion
+For each dataset, we attempted to classify our test wildfire data by fire size code (A - G). In our dataset containing Portuguese National Park fires, we observed a **52.9%** classification accuracy using a Random Forest classification model, **49.0%** accuracy with an AdaBoosted Random Forest classifier, **31.7%** accuracy with a Complement Naive Bayes classifier, **28.8%** accuracy with a Gaussian Naive Bayes classifier, **51.9%** accuracy with a Support Vector Machine classifier, and a **48.1%** accuracy with a Neural Network. With our dataset of United States wildfires, we approached 
 
+A potential reason for our inconclusive classification results may lie in the size of the Portuguese National Park dataset. The dataset only contains 517 instances to analyze. It does, however, have a wide range of features to analyze. The bottleneck in our analysis may be lack of sufficent amounts of data to launch a large-scale classifier on. 
+
+### Conclusion
 
 ### Bibliography
 [1] “Facts + Statistics: Wildfires.” Insurance Information Institute, 2020, www.iii.org/fact-statistic/facts-statistics-wildfires. 
