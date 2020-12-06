@@ -105,21 +105,23 @@ With larger samples taken:
 #### UCI Dataset
 We attempted to classify our test wildfire data by fire size code (A - G). In our dataset containing Portuguese National Park fires, we observed a **52.9%** classification accuracy using a Random Forest classification model, **49.0%** accuracy with an AdaBoosted Random Forest classifier, **31.7%** accuracy with a Complement Naive Bayes classifier, **28.8%** accuracy with a Gaussian Naive Bayes classifier, **51.9%** accuracy with a Support Vector Machine classifier, and a **49.0%** accuracy with a Neural Network.
 
-##### Classifier Results
+##### UCI Dataset Models
 ![UCI Dataset](report%20materials/supervised_results_uci.png)
 
-##### Neural Network Training Results
+##### UCI Neural Network Results
 ![UCI Dataset](report%20materials/nn_training_uci.png)
 
-A potential reason for our inconclusive classification results may lie in the size of the Portuguese National Park dataset. The dataset only contains 517 instances to analyze. It does, however, have a wide range of features to analyze. The bottleneck in our analysis may be lack of sufficent amounts of data to launch a large-scale classifier on. 
+##### UCI Dataset Discussion
+A potential reason for our inconclusive classification results may lie in the size of the Portuguese National Park dataset. The dataset only contains 517 instances to analyze. It does, however, have a wide range of features to analyze. The bottleneck in our analysis may be the lack of sufficent amounts of data to launch a large-scale classifier on. Given that our three highest performing classifiers (Random Forest, SVM, and Neural Network) were within 2-3% difference in accuracy, this indicates that our approach to classifying the data or the data itself presented accuracy problems as opposed to our choice of models.
 
-#### Kaggle Dataset
+#### Kaggle Dataset Models
 We attempted to classify our test wildfire data by fire cause and size. In our dataset containing United States wildfires, we observed a **50.3%** accuracy for classifying the cause of the fire using a Random Forest classification model and **47.0%** accuracy with a Neural Network. For predicting the size of the wildfire, we achieved an accuracy of **4%** using a Random Forest and **5%** accuracy with a Neural Network
 
 
-##### Results
+##### Kaggle Dataset Results
 ![Kaggle Dataset](report%20materials/kaggle_results_graph.PNG)
 
+##### Kaggle Dataset Discussion
 The limitations in accuracies observed may be attributed to the lack of features in the dataset. In addition, there existed many trivial features that needed to be discarded (i.e. fire incident Id). Specifically for predicting the size of the fire, the quality of the features was lacking, as important factors, such as climate and humidity, were not included in the data set. Nonetheless, the benefit of this dataset was that it offered an opportunity to train on a large number of instances.
 
 
