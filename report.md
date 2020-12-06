@@ -57,7 +57,49 @@ Although previous attempts at wildfire predicted has useed a variety of data, su
   
 Existing research in wildfire spread prediction incorporates high-dimensional features in classification. Tonini et al. use the slopes of land, vegetation type, non-flammable area, etc. to obtain the probability of fire in an Italian region via Random Forest with 15 years of fire damage maps were used as training data [8]. Final predictions ranged from 83.4% to 91.7% accuracy year-to-year under the test dataset. Rodrigues and Riva utilize features such as forest area, power line presence, protected area status, etc. to predict low/high risk in Spanish regions [9]. 30 years of wildfire data and used many regression methods - Random Forest, Boosted Regression Tree, Support Vector Machine, and logistic regression - to predict fire risk. The Random Forest algorithm proves promising with an AUC value of 0.746 vs 0.730, 0.709, and 0.686 for the other algorithms respectively. Sayad et al. use NASA satellite remote sensing data based on crop states, meteorological conditions, thermal intensity, etc. in conjunction with a Multi-layer perceptron neural network and a separate SVM model to predict fire occurrence to an accuracy of 98% and 97% respectively on a small dataset of Canadian fires [10].
 
-We will utilize a correlation matrix between our features, followed by Principal Component Analysis to reduce our feature set to the most important, linearly independent features. To predict the wildfire risk of every location in our dataset, we will utilize an array of models - including Random Forest, SVM, and neural network-based classification. Each model will be tested independently to maximize accuracy.
+Drawing on methods above, we divide our task into two subtasks: unsupervised learning to understand our data and supervised learning to predict the risk of wildfires. 
+
+Our unsupervised learning consisting of building correlation matrices to understand the relationship between features and applying PCA to reduce our feature set to the most important linearly independent features. These results were mentioned in the midterm report but are also attached here for convenience.
+
+### UCI Unsupervised Learning Results
+
+#### Correlation Matrix
+
+We started by building a correlation matrix, which depict the factors' correlations with each other via a gradient
+![Correlation Matrix Results](report%20materials/uci_covariance.PNG)
+
+#### PCA Results
+PCA with two components
+![PCA Results](report%20materials/uci_PCA.PNG)
+Our results from PCA show that there is a lot of noise in our data. None of the classes were linearly inseparable, meaning that none of the features in the UCI dataset alone were strong predictors of our class labels.
+
+### Kaggle Unsupervised Learning Results
+
+#### Correlation Matrix
+![Correlation Matrix Results](report%20materials/kaggle_covariance.PNG)
+
+#### PCA Results
+
+PCA with two components.
+![PCA Results](/report%20materials/kaggle_PCA.PNG)
+
+
+The PCA of the Kaggle data set depicts two principal components and the casual factors as the labels. Altough there seems to be a trace of clustering, they are still not clear enough to the point where the model could be used to predict the casual factors. Indeed, the two components are only able to capture 36% of the variance. In order to capture 95% of the variance, eight components were necessary. This makes sense given our data cleaning process because the final dataset contained 9 features which were relatively distinct from each other. 
+
+
+We also performed a principal component analysis with 3 components and found that the retianed variance was higher but still only 53%.
+![3D Kaggle PCA Results: Cause](report%20materials/3D_vis.png)
+
+Additionally, we performed PCA but used States as the target variable,
+which presented these graphs:
+
+![Kaggle PCA Results: State](report%20materials/kaggle_state_PCA.png)
+
+![3D Kaggle PCA Results: State](report%20materials/kaggle_state_PCA3D.png)
+
+With larger samples taken:
+
+![3D Kaggle PCA Results: State with larger sample](report%20materials/kaggle_state_PCA3D_more.png)
 
 ### Results/Discussion
 #### UCI Dataset
