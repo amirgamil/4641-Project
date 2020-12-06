@@ -13,6 +13,44 @@ Wildfires are a major threat to our environment, destroying natural habitats and
 
 The goal of this project is to build a predictive model to understand, analyze, and detect patterns in data, allowing us to forecast the locations of wildfires as soon as possible. We have access to a dataset of 1.88 million wildfires in the United States [3], providing 24 years of geo-referenced wildfire records from 1992 to 2015. We are interested in exploring this dataset and applying machine learning techniques to identify patterns or clusters related to identifying causes of wildfires, predicting sizes of wildfires, or identifying wildfire "hotspots"(areas which are more prone to wildfires). The goal is to use machine learning techniques to aid in a real-world application of proper allocation of firefighter resources.
 
+
+### Data Collection
+
+Specifically, our data is divided into two independent datasets that we will apply feature engineering and data preprocessing independently on, before choosing the most relevant features for our downstream target classification task. The notebooks labeled explore_kaggle and Wildfire Prediction Notebook under the datasets/kaggle and datasets/uci respectively are where you can find all of the code for preprocessing.
+
+#### [UCI Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/uci)
+
+The first UCI dataset consists of 517 entries with 13 features describing wildfire instances in a northeast Portuguese national park. These features include month, day, temperature, wind conditions, rain, etc. We perform several important steps on the data to preprocess it:
+
+1. Convert year/month dates into categorical features
+2. Scale the columns which contain numerical data (besides the dates which we leave as categorical data) - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+
+##### Before Preprocessing
+
+<img src="report%20materials/uci_before_preprocessing.png">
+
+##### After Preprocessing
+
+![UCI Dataset](report%20materials/uci_after_preprocessing.png)
+
+#### [Kaggle Dataset](https://github.com/amirgamil/4641-Project/tree/master/datasets/kaggle)
+
+The second dataset is a Kaggle dataset consisting of data from over 1.88 million wildfires in the United States. The dataset is initially stored in an SQLite database which we dump into Pandas in order to preprocess it easily. We perform 4 important steps on the dataset to preprocess it:
+
+1. Convert latitude and longitude to standarized forms
+2. Convert dates into timestamps with durations that can be processed by our models
+3. Scale the columns which contain numerical data - we use Sci-kit learn's Standard Scaler to create Z-scores for each of our features
+4. Convert string columns into categorical features
+
+##### Before Preprocessing
+
+![Kaggle Dataset](report%20materials/kaggle_befre_preprocessing.png)
+
+##### After Preprocessing
+
+![Kaggle Dataset](report%20materials/kaggledataset.png)
+
+
 ### Methods
 
 Although previous attempts at wildfire predicted has useed a variety of data, such as meteorological conditions [4], biomass [5], and satellite images [6], there remain challenges in predicting wildfires accurately and understanding the complex patterns by which the environment will respond. [7].
@@ -25,8 +63,10 @@ We will utilize a correlation matrix between our features, followed by Principal
 #### UCI Dataset
 For each dataset, we attempted to classify our test wildfire data by fire size code (A - G). In our dataset containing Portuguese National Park fires, we observed a **52.9%** classification accuracy using a Random Forest classification model, **49.0%** accuracy with an AdaBoosted Random Forest classifier, **31.7%** accuracy with a Complement Naive Bayes classifier, **28.8%** accuracy with a Gaussian Naive Bayes classifier, **51.9%** accuracy with a Support Vector Machine classifier, and a **49.0%** accuracy with a Neural Network. With our dataset of United States wildfires, we approached 
 
+##### Classifier Results (excluding NN)
 ![UCI Dataset](report%20materials/supervised_results_uci.png)
 
+##### Neural Network Training Results
 ![UCI Dataset](report%20materials/nn_training_uci.png)
 
 A potential reason for our inconclusive classification results may lie in the size of the Portuguese National Park dataset. The dataset only contains 517 instances to analyze. It does, however, have a wide range of features to analyze. The bottleneck in our analysis may be lack of sufficent amounts of data to launch a large-scale classifier on. 
