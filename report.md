@@ -102,7 +102,7 @@ With larger samples taken:
 ![3D Kaggle PCA Results: State with larger sample](report%20materials/kaggle_state_PCA3D_more.png)
 
 ### Results/Discussion
-#### UCI Dataset
+##### UCI Dataset
 We attempted to classify our test wildfire data by fire size code (A - G). In our dataset containing Portuguese National Park fires, we observed a **52.9%** classification accuracy using a Random Forest classification model, **49.0%** accuracy with an AdaBoosted Random Forest classifier, **31.7%** accuracy with a Complement Naive Bayes classifier, **28.8%** accuracy with a Gaussian Naive Bayes classifier, **51.9%** accuracy with a Support Vector Machine classifier, and a **49.0%** accuracy with a Neural Network.
 
 ##### UCI Dataset Models
@@ -114,9 +114,8 @@ We attempted to classify our test wildfire data by fire size code (A - G). In ou
 ##### UCI Dataset Discussion
 A potential reason for our inconclusive classification results may lie in the size of the Portuguese National Park dataset. The dataset only contains 517 instances to analyze. It does, however, have a wide range of features to analyze. The bottleneck in our analysis may be the lack of sufficent amounts of data to launch a large-scale classifier on. Given that our three highest performing classifiers (Random Forest, SVM, and Neural Network) were within 2-3% difference in accuracy, this indicates that our approach to classifying the data or the data itself presented accuracy problems as opposed to our choice of models.
 
-#### Kaggle Dataset Models
+##### Kaggle Dataset Models
 We attempted to classify our test wildfire data by fire cause and size. In our dataset containing United States wildfires, we observed a **50.3%** accuracy for classifying the cause of the fire using a Random Forest classification model and **47.0%** accuracy with a Neural Network. For predicting the size of the wildfire, we achieved an accuracy of **4%** using a Random Forest and **5%** accuracy with a Neural Network
-
 
 ##### Kaggle Dataset Results
 ![Kaggle Dataset](report%20materials/kaggle_results_graph.PNG)
