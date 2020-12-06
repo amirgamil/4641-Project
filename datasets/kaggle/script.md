@@ -78,8 +78,8 @@ We utilized random forests due to the practicality provided by the limited numbe
 
 Random Forest results
 
-With the Kaggle data set, we achieved 44-48% accuracy on our test dataset for classifying the cause of the woldfires.
+With the Kaggle data set, we achieved 48%-50.3% accuracy on our test dataset for classifying the cause of the woldfires.
 
-For predicting the size of the fire, the accuracy decreased to around 2.5%.
+For predicting the size of the fire, the accuracy decreased to around 2.5%-4%.
 
-In both cases, the accuracy achieved reflects a similar trend to the results from deep learning. The accuracy for predicting the cause of the wildfire neared 50% while the accuracy for predicting the size of the fire was far less, about 5% at best.
+In both cases, the accuracy achieved reflects a similar trend to the results from deep learning. The accuracy for predicting the cause of the wildfire was around 50% while the accuracy for predicting the size of the fire was far less, about 5% at best.
