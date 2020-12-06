@@ -59,7 +59,7 @@ Existing research in wildfire spread prediction incorporates high-dimensional fe
 
 Drawing on methods above, we divide our task into two subtasks: unsupervised learning to understand our data and supervised learning to predict the risk of wildfires. 
 
-Our unsupervised learning consisting of building correlation matrices to understand the relationship between features and applying PCA to reduce our feature set to the most important linearly independent features. These results were mentioned in the midterm report but are also attached here for convenience.
+Our unsupervised learning consisting of building correlation matrices to understand the relationship between features and applying PCA to reduce our feature set to the most important linearly independent features. 
 
 ### UCI Unsupervised Learning Results
 
