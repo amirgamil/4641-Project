@@ -120,6 +120,14 @@ We attempted to classify our test wildfire data by fire cause and size. In our d
 ##### Kaggle Dataset Results
 ![Kaggle Dataset](report%20materials/kaggle_results_graph.PNG)
 
+![Kaggle Dataset](datasets/kaggle/imgs/acc.png)
+
+![Kaggle Dataset](datasets/kaggle/imgs/loss.png)
+
+![Kaggle Dataset](datasets/kaggle/imgs/cat_size_accpng.png)
+
+![Kaggle Dataset](datasets/kaggle/imgs/cat_size_loss.png)
+
 ##### Kaggle Dataset Discussion
 The limitations in accuracies observed may be attributed to the lack of features in the dataset. In addition, there existed many trivial features that needed to be discarded (i.e. fire incident Id). Specifically for predicting the size of the fire, the quality of the features was lacking, as important factors, such as climate and humidity, were not included in the data set. Nonetheless, the benefit of this dataset was that it offered an opportunity to train on a large number of instances.
 
